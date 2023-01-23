@@ -2,6 +2,7 @@
 // Pass file contents to CountVowels.
 // Then output the number of vowels found in the file.
 using System;
+using System.IO;
 
 class MainClass
 {
@@ -20,7 +21,7 @@ class MainClass
     private static string ReadFromFile()
     {
         // Read text from text file and store in string.
-        string text = System.IO.File.ReadAllText
+        string text = File.ReadAllText
             (@"/Users/antonio/repo/CPSC-5031-Algorithms/Week1-Algorithm-Analysis/data.txt");
 
         // Pass the file contents to the CountVowels function.
@@ -41,6 +42,7 @@ class MainClass
 
         int counter = 0;
         Console.WriteLine("\nSearching for vowels in this string");
+
         // Compare each character against the vowels array.
         for (int i = 0; i < arr.Length; i++)
         {
@@ -55,6 +57,7 @@ class MainClass
                 }
             }
         }
+
         return counter;
     }
 }
