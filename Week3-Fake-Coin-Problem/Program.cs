@@ -2,8 +2,8 @@
 {
     public static void Main()
     {
-        BagOfCoins bagOfCoins = new(100);
-        
+        int numberOfCoins = 9;
+        BagOfCoins bagOfCoins = new(numberOfCoins);
         bagOfCoins.FindFakeCoin(bagOfCoins.arrayOfCoins);
 
         Console.WriteLine("Press any key to exit.");
@@ -19,7 +19,7 @@ public class Coin
     public double Weight { get; set; }
     public int Position { get; set; }
 
-    public override string ToString() => $"{this.Position} {this.Weight}".Trim();
+    public override string ToString() => $"{this.Position} {this.Weight}";
 
     public Coin(double weight, int position)
     {
@@ -80,7 +80,7 @@ public class BagOfCoins
     {
         bool IsFakeCoinFound = false;
 
-        if (arrayOfCoins.Length == 0)
+        if (this.arrayOfCoins.Length == 0)
         {
             Console.WriteLine($"Is Fake coin found? {IsFakeCoinFound}");
             return IsFakeCoinFound;
@@ -94,31 +94,37 @@ public class BagOfCoins
         else
         {
             bool oddNumCoins = arrayOfCoins.Length % 2 == 1;
-            int third = arrayOfCoins.Length / 3;
+            //int third = arrayOfCoins.Length / 3;
 
-            Coin[] leftCoins = new Coin[third];
-            Array.Copy(arrayOfCoins, leftCoins, third);
+            Coin[] leftCoins = new Coin[9];
+            Coin[] middleCoins = new Coin[9];
+            Coin[] rightCoins = new Coin[9];
 
-            Coin[] middleCoins = new Coin[third];
-            Array.Copy(arrayOfCoins, middleCoins, third);
-
-            Coin[] rightCoins = new Coin[third];
-            Array.Copy(arrayOfCoins, rightCoins, third);
+            for (int i = 0; i < arrayOfCoins.Length; i++)
+            {
+                leftCoins.SetValue(arrayOfCoins[i], i);
+                middleCoins.SetValue(arrayOfCoins[i], i);
+                rightCoins.SetValue(arrayOfCoins[i], i);
+            }
+           
+            //Array.Copy(arrayOfCoins, leftCoins, arrayOfCoins.Length - 1);
+            //Array.Copy(arrayOfCoins, middleCoins, arrayOfCoins.Length - 1);
+            //Array.Copy(arrayOfCoins, rightCoins, arrayOfCoins.Length - 1);
 
             int result = CompareCoins(leftCoins, middleCoins);
             if (result == 0)
             {
-                DisplayCoinInfo(rightCoins);
+                //DisplayCoinInfo(rightCoins);
                 return FindFakeCoin(rightCoins);
             }
             else if (result == 1)
             {
-                DisplayCoinInfo(leftCoins);
+                //DisplayCoinInfo(leftCoins);
                 return FindFakeCoin(leftCoins);
             }
             else if (result == -1)
             {
-                DisplayCoinInfo(middleCoins);
+                //DisplayCoinInfo(middleCoins);
                 return FindFakeCoin(middleCoins);
             }
             else if (oddNumCoins)
@@ -152,12 +158,13 @@ public class BagOfCoins
         if (leftArrayOfCoins.Length != rightArrayOfCoins.Length)
         {
             Console.WriteLine("The arrays are not equal in length.");
+            Console.WriteLine($"Left Weight: {leftWeight} Right Weight: {rightWeight}");
         }
         
         foreach (var coin in leftArrayOfCoins)
         {
-            leftWeight += coin.Weight;
-            
+            leftWeight = leftWeight + coin.Weight;
+            Console.WriteLine($"Left Array of coings {coin}");
         }
 
         foreach (var coin in rightArrayOfCoins)
@@ -165,16 +172,20 @@ public class BagOfCoins
             rightWeight += coin.Weight;
         }
 
+        Console.WriteLine($"Left Weight: {leftWeight} Right Weight: {rightWeight}");
         if (leftWeight < rightWeight)
         {
+            Console.WriteLine($"Left Weight: {leftWeight} Right Weight: {rightWeight}");
             return 1;
         }
         else if (leftWeight > rightWeight)
         {
+            Console.WriteLine($"Left Weight: {leftWeight} Right Weight: {rightWeight}");
             return -1;
         }
         else
         {
+            Console.WriteLine($"Left Weight: {leftWeight} Right Weight: {rightWeight}");
             return 0;
         }
     }
@@ -191,6 +202,10 @@ public class BagOfCoins
             int endOfArray = arrayOfCoins.Length - 1;
             string message = $"Searching from {startOfArray} to {endOfArray}";
             Console.WriteLine(message);
+            foreach (var coin in arrayOfCoins)
+            {
+                Console.WriteLine(coin.ToString());
+            }
         }
 
         Console.WriteLine("Searching empty array");
