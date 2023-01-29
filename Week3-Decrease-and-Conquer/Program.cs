@@ -1,17 +1,47 @@
-﻿// Read from contents from file(e.g. "CABAAXBYA")
-// Pass file contents to CountVowels.
-// Then output the number of CABAAXBYA found in the file.
-
-class MainClass
+﻿class MainClass
 {
     public static void Main(string[] args)
     {
+        int[] unsortedArray = new int[] { 8, 3, 2, 5, 1, 4, 6, 9, 7 };
+        int[] sortedIntegerArray = InsertionSort(unsortedArray);
+        PrintArrayContents(sortedIntegerArray);
+
         // Pass file contents to BruteForce and print results.
-        char[] sortedArray = InsertionSort(ReadFromFile());
-        PrintArrayContents(sortedArray);
+        char[] sortedCharacterArray = InsertionSort(ReadFromFile());
+        PrintArrayContents(sortedCharacterArray);
 
         Console.WriteLine("Press any key to exit.");
         Console.ReadKey();
+    }
+
+    /// <summary>
+    /// Decrease-by-one approach. Sorts a given array by inserting sort.
+    /// </summary>
+    /// <param name="intArray">An array A[0..n - 1] of n orderable elements.</param>
+    /// <returns>Array A[0..n - 1] sorted in nondecreasing order.</returns>
+    public static int[] InsertionSort(int[] intArray)
+    {
+        for (int i = 0; i < intArray.Length; i++)
+        {
+            // v is the current element value.
+            var v = intArray[i];
+
+            // j is the last element in the array.
+            var j = i - 1;
+
+            // As long as j is not at the begining of the array and if the value in
+            // the j element is larger than the value of current element's value,
+            // compare each character with j 
+            while (j >= 0 && intArray[j] > v)
+            {
+                intArray[j + 1] = intArray[j];
+                j = j - 1;
+            }
+
+            intArray[j + 1] = v;
+        }
+
+        return intArray;
     }
 
     /// <summary>
@@ -25,15 +55,18 @@ class MainClass
         for (int i = 0; i < characterArray.Length; i++)
         {
             var v = characterArray[i];
+            // j is the last character in the array.
             var j = i - 1;
             //Console.WriteLine($"For characterArray[i] {characterArray[i]}");
 
+            // As long as j is not at the begining of the array and if j is larger
+            // than the current element,  compare each character with j 
             while (j >= 0 && characterArray[j] > v)
             {
                 characterArray[j + 1] = characterArray[j];
                 j = j - 1;
-                characterArray[j + 1] = v;
             }
+            characterArray[j + 1] = v;
 
             //Console.WriteLine($"For characterArray[i] {characterArray[i]}");
         }
@@ -41,47 +74,15 @@ class MainClass
         return characterArray;
     }
 
-    public static void BruteForce(string userInput)
+    private static void PrintArrayContents(int[] intArray)
     {
-        // Convert userInput to lowercase.
-        string lowerCase = userInput.ToLower();
-
-        // Covert to string to array and store in arr variable.
-        char[] characterArray = lowerCase.ToCharArray();
-
-        // Find the searchString in userInput
-        char searchStringStart = 'a';
-        char searchStringEnd = 'b';
-
-        int counterA = 0;
-        int counterB = 0;
-        string message = $"\nSearching for {searchStringStart} " +
-            $" and {searchStringEnd} in this character array {characterArray}";
-        Console.WriteLine(message);
-
-        // Compare each character against the searchString array.
-        for (int i = 0; i < characterArray.Length; i++)
+        for (int i = 0; i < intArray.Length; i++)
         {
-            // Evaluate if the userInput contains As.
-            if (characterArray[i] == searchStringStart)
-            {
-                // Store the total number of As.
-                counterA = counterA + 1;
-            }
-
-            // Evaluate if the userInput contains Bs.
-            if (characterArray[i] == searchStringEnd)
-            {
-                // Store the total number of Bs.
-                counterB = counterB + 1;
-            }
+            Console.WriteLine(intArray[i]);
         }
-
-        Console.WriteLine($"A {counterA}");
-        Console.WriteLine($"B {counterB}");
     }
 
-    public static void PrintArrayContents(char[] characterArray)
+    private static void PrintArrayContents(char[] characterArray)
     {
         for (int i = 0; i < characterArray.Length; i++)
         {
@@ -91,13 +92,17 @@ class MainClass
 
     private static char[] ReadFromFile()
     {
+        // Read from contents from file(e.g. "CABAAXBYA")
+        // Pass file contents to CountVowels.
+        // Then output the number of CABAAXBYA found in the file.
+
         string fileName = "data.txt";
         string projectFolder = "Week3-Decrease-and-Conquer";
         string solutionFolderPath = "/Users/antonio/repo/CPSC-5031-Algorithms/";
         string fullFilePath = $"{solutionFolderPath}/{projectFolder}/{fileName}"; 
 
         // Read from contents from file(e.g. "CABAAXBYA").
-        Console.WriteLine($"Reading file {fullFilePath}\n");
+        Console.WriteLine($"\nReading file {fullFilePath}\n");
 
         // Read text from text file and store in string.
         string text = File.ReadAllText(fullFilePath);
