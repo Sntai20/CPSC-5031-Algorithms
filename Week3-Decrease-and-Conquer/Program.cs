@@ -2,8 +2,6 @@
 // Pass file contents to CountVowels.
 // Then output the number of CABAAXBYA found in the file.
 
-using System.Diagnostics.Metrics;
-
 class MainClass
 {
     public static void Main(string[] args)
