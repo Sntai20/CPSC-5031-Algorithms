@@ -86,7 +86,7 @@
     {
         for (int i = 0; i < characterArray.Length; i++)
         {
-            Console.WriteLine(characterArray[i]); 
+            Console.WriteLine(characterArray[i]);
         }
     }
 
@@ -99,7 +99,7 @@
         string fileName = "data.txt";
         string projectFolder = "Week3-Decrease-and-Conquer";
         string solutionFolderPath = "/Users/antonio/repo/CPSC-5031-Algorithms/";
-        string fullFilePath = $"{solutionFolderPath}/{projectFolder}/{fileName}"; 
+        string fullFilePath = $"{solutionFolderPath}/{projectFolder}/{fileName}";
 
         // Read from contents from file(e.g. "CABAAXBYA").
         Console.WriteLine($"\nReading file {fullFilePath}\n");

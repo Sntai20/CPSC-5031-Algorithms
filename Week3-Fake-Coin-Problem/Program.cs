@@ -106,7 +106,7 @@ public class BagOfCoins
                 middleCoins.SetValue(arrayOfCoins[i], i);
                 rightCoins.SetValue(arrayOfCoins[i], i);
             }
-           
+
             //Array.Copy(arrayOfCoins, leftCoins, arrayOfCoins.Length - 1);
             //Array.Copy(arrayOfCoins, middleCoins, arrayOfCoins.Length - 1);
             //Array.Copy(arrayOfCoins, rightCoins, arrayOfCoins.Length - 1);
@@ -160,7 +160,7 @@ public class BagOfCoins
             Console.WriteLine("The arrays are not equal in length.");
             Console.WriteLine($"Left Weight: {leftWeight} Right Weight: {rightWeight}");
         }
-        
+
         foreach (var coin in leftArrayOfCoins)
         {
             leftWeight = leftWeight + coin.Weight;
