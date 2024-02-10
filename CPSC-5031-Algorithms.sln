@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week3-Fake-Coin-Problem", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week3-Decrease-and-Conquer", "Week3-Decrease-and-Conquer\Week3-Decrease-and-Conquer.csproj", "{0EC4B989-2BE6-47ED-876B-CF1C85029130}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0EC4B989-2BE6-47ED-876B-CF1C85029130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EC4B989-2BE6-47ED-876B-CF1C85029130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EC4B989-2BE6-47ED-876B-CF1C85029130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
