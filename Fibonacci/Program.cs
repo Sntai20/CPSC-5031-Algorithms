@@ -1,6 +1,8 @@
 ﻿/*
-* Reference: https://www.c-sharpcorner.com/UploadFile/19b1bd/calculate-fibonacci-series-in-various-ways-using-C-Sharp/
-*/
+ * Problem: Write a program in the language of your choice that implements Fibonacci in each of the first three
+ * techniques and counts the number of addition operations when called.
+ * Reference: https://www.c-sharpcorner.com/UploadFile/19b1bd/calculate-fibonacci-series-in-various-ways-using-C-Sharp/
+ */
 
 static void FibonacciIterative(int length)
 {
