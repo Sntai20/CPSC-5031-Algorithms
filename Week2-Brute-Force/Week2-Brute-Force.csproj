@@ -6,6 +6,7 @@
     <RootNamespace>Week2_Brute_Force</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
 </Project>

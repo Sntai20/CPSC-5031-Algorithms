@@ -6,6 +6,7 @@
     <RootNamespace>Week3_Fake_Coin_Problem</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
 </Project>

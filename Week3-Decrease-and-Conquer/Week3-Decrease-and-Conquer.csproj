@@ -6,6 +6,7 @@
     <RootNamespace>Week3_Decrease_and_Conquer</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
 </Project>

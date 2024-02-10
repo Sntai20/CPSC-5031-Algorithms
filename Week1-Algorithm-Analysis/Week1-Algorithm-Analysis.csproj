@@ -6,6 +6,7 @@
     <RootNamespace>Week1_Algorithm_Analysis</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
 </Project>
