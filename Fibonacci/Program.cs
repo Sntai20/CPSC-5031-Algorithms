@@ -2,7 +2,7 @@
 * Reference: https://www.c-sharpcorner.com/UploadFile/19b1bd/calculate-fibonacci-series-in-various-ways-using-C-Sharp/
 */
 using System;
-					
+
 public class Program
 {
 	public static void Fibonacci_Iterative(int len)
@@ -35,9 +35,9 @@ public class Program
 	public static void Main()
 	{
 		Console.WriteLine("Fibonacci Iterative");
-		Fibonacci_Iterative(3);
+		Fibonacci_Iterative(10);
 
-        Console.WriteLine("Fibonacci Recursive")
+        Console.WriteLine("Fibonacci Recursive");
         Fibonacci_Recursive(10);
 	}
 }
