@@ -1,28 +1,37 @@
-﻿/*
+﻿/* Name: Antonio Santana
  * Problem: Write a program in the language of your choice that implements Fibonacci in each of the first three
  * techniques and counts the number of addition operations when called.
- * Reference: https://www.c-sharpcorner.com/UploadFile/19b1bd/calculate-fibonacci-series-in-various-ways-using-C-Sharp/
  */
 
 static int FibonacciRecursiveClassic(int numberOfElements)
 {
-    Console.Write("{0}", numberOfElements);
     switch (numberOfElements)
     {
         case 0:
-            //Console.Write("{0}", 0);
             return 0;
         case 1:
-            //Console.Write("{0}", 1);
             return 1;
         default:
-            //Console.Write("{0} ", ((numberOfElements - 1) + (numberOfElements - 2)));
             return FibonacciRecursiveClassic(numberOfElements - 1) + FibonacciRecursiveClassic(numberOfElements - 2);
+    }
+}
+
+// This code is similar to the FibonacciRecursiveClassic, but uses if/else instead of a switch case.
+static int FibonacciRecursiveAlternavtive(int numberOfElements)
+{
+    if ((numberOfElements == 0) || (numberOfElements == 1))
+    {
+        return numberOfElements;
+    }
+    else
+    {
+        return FibonacciRecursiveAlternavtive(numberOfElements - 1) + FibonacciRecursiveAlternavtive(numberOfElements - 2);
     }
 }
 
 static void FibonacciRecursive(int numberOfElements)
 {
+    Console.WriteLine("\nFibonacci Recursive: Input {0}", numberOfElements);
     FibonacciRecursiveTemp(0, 1, 1, numberOfElements);
 }
 
@@ -41,59 +50,104 @@ static void FibonacciRecursiveTemp(
             counter + 1,
             numberOfElements);
     }
+    else
+    {
+        // Count the number of addition operations called.
+        Console.WriteLine("\nNumber of addition operations counter {0}", counter);
+    }
 }
 
 static void FibonacciIterative(int numberOfElements)
 {
-    int firstNumber = 0, secondNumber = 1, nextNumber;
+    int firstNumber = 0, secondNumber = 1, nextNumber, counter = 1;
 
-    if (numberOfElements < 2)
+    Console.WriteLine("\nFibonacci Iterative: Input {0}", numberOfElements);
+    Console.Write("{0} {1}", firstNumber, secondNumber);
+    for (int i = 2; i < numberOfElements; i++)
     {
-        Console.Write("Please Enter a number greater than two");
+        nextNumber = firstNumber + secondNumber;
+        counter++;
+        Console.Write(" {0}", nextNumber);
+        firstNumber = secondNumber;
+        secondNumber = nextNumber;
     }
-    else
-    {
-        Console.Write("{0} {1}", firstNumber, secondNumber);
-        for (int i = 2; i < numberOfElements; i++)
-        {
-            nextNumber = firstNumber + secondNumber;
-            Console.Write(" {0}", nextNumber);
-            firstNumber = secondNumber;
-            secondNumber = nextNumber;
-        }
-    }
+
+    // Count the number of addition operations called.
+    Console.WriteLine("\nNumber of addition operations counter {0}", counter);
 }
 
-static void FibonacciRecursiveAccumulator(int numberOfElements)
+static int FibonacciRecursiveAccumulator(
+    int numberOfElements,
+    int firstNumber = 0,
+    int secondNumber = 1)
 {
-    FibonacciRecursiveAccumulatorTemp(0, 1, 1, numberOfElements);
-}
-
-static void FibonacciRecursiveAccumulatorTemp(
-    int firstNumber,
-    int secondNumber,
-    int counter,
-    int numberOfElements)
-{
-    if (counter <= numberOfElements)
+    switch (numberOfElements)
     {
-        Console.Write("{0} ", firstNumber);
-        FibonacciRecursiveAccumulatorTemp(
-            secondNumber,
-            firstNumber + secondNumber,
-            counter + 1,
-            numberOfElements);
+        case 0:
+            return firstNumber;
+        default:
+            return FibonacciRecursiveAccumulator(numberOfElements - 1, secondNumber, firstNumber + secondNumber);
     }
 }
 
-//Console.WriteLine("Fibonacci Recursive Classic");
-//FibonacciRecursiveClassic(10);
+/* Driver code calls the methods FibonacciRecursiveClassic, FibonacciRecursive, FibonacciIterative, and
+ * FibonacciRecursiveAccumulator. The driver code test the methods with the values 3, 10, and 20. If available,
+ * the output of each method should provide the total number of addition operations performed.
+ * 
+ * For the given input of 10, there are 9 addition operations performed in the recursive version. The recursive
+ * Fibonacci can be less efficient due to repeated calculations, especially for larger values of number.
+ * 
+ * Observing the number of addition operations is not as straightforward with the FibonacciRecursiveClassic
+ * or FibonacciRecursiveAccumulator methods as it is with the FibonacciRecursive and FibonacciIterative methods.
+ * 
+ * Expected output:
+ * 
+ * Fibonacci Recursive Classic: Input 3
+ * 
+ * Fibonacci Recursive: Input 3
+ * 0 1 1
+ * Number of addition operations counter 3
+ * 
+ * Fibonacci Iterative: Input 3
+ * 0 1 1
+ * Number of addition operations counter 2
+ * 
+ * Fibonacci Recursive with accumulator: Input 3
+ * 
+ * Fibonacci Recursive Classic: Input 10
+ * 
+ * Fibonacci Recursive: Input 10
+ * 0 1 1 2 3 5 8 13 21 34
+ * Number of addition operations counter 10
+ * 
+ * Fibonacci Iterative: Input 10
+ * 0 1 1 2 3 5 8 13 21 34
+ * Number of addition operations counter 9
+ * 
+ * Fibonacci Recursive with accumulator: Input 10
+ * 
+ * Fibonacci Recursive Classic: Input 20
+ * 
+ * Fibonacci Recursive: Input 20
+ * 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
+ * Number of addition operations counter 20
+ * 
+ * Fibonacci Iterative: Input 20
+ * 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
+ * Number of addition operations counter 19
+ * 
+ * Fibonacci Recursive with accumulator: Input 20
+ */
+int[] numbers = { 3, 10, 20 };
+foreach (int number in numbers)
+{
+    Console.WriteLine("\nFibonacci Recursive Classic: Input {0}", number);
+    FibonacciRecursiveClassic(number);
 
-Console.WriteLine("\nFibonacci Recursive");
-FibonacciRecursive(10);
+    FibonacciRecursive(number);
 
-Console.WriteLine("\nFibonacci Iterative");
-FibonacciIterative(10);
+    FibonacciIterative(number);
 
-Console.WriteLine("\nFibonacci Recursive with accumulators");
-FibonacciRecursiveAccumulator(10);
+    Console.WriteLine("\nFibonacci Recursive with accumulator: Input {0}", number);
+    FibonacciRecursiveAccumulator(number);
+}
