@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci", "Fibonacci\Fibo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubstringSearch", "SubstringSearch", "{D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearchTest", "SubstringSearch\test\SubstringSearchTest\SubstringSearchTest.csproj", "{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearchTest", "SubstringSearch\test\SubstringSearchTest.csproj", "{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}"
 EndProject

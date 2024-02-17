@@ -23,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SubstringSearch.csproj" />
+    <ProjectReference Include="..\src\SubstringSearch.csproj" />
   </ItemGroup>
 </Project>

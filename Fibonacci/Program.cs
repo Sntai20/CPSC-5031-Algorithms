@@ -17,7 +17,7 @@ static int FibonacciRecursiveClassic(int numberOfElements)
 }
 
 // This code is similar to the FibonacciRecursiveClassic, but uses if/else instead of a switch case.
-static int FibonacciRecursiveAlternavtive(int numberOfElements)
+static int FibonacciRecursiveAlternative(int numberOfElements)
 {
     if ((numberOfElements == 0) || (numberOfElements == 1))
     {
@@ -25,7 +25,7 @@ static int FibonacciRecursiveAlternavtive(int numberOfElements)
     }
     else
     {
-        return FibonacciRecursiveAlternavtive(numberOfElements - 1) + FibonacciRecursiveAlternavtive(numberOfElements - 2);
+        return FibonacciRecursiveAlternative(numberOfElements - 1) + FibonacciRecursiveAlternative(numberOfElements - 2);
     }
 }
 
@@ -93,49 +93,49 @@ static int FibonacciRecursiveAccumulator(
 /* Driver code calls the methods FibonacciRecursiveClassic, FibonacciRecursive, FibonacciIterative, and
  * FibonacciRecursiveAccumulator. The driver code test the methods with the values 3, 10, and 20. If available,
  * the output of each method should provide the total number of addition operations performed.
- * 
+ *
  * For the given input of 10, there are 9 addition operations performed in the recursive version. The recursive
  * Fibonacci can be less efficient due to repeated calculations, especially for larger values of number.
- * 
+ *
  * Observing the number of addition operations is not as straightforward with the FibonacciRecursiveClassic
  * or FibonacciRecursiveAccumulator methods as it is with the FibonacciRecursive and FibonacciIterative methods.
- * 
+ *
  * Expected output:
- * 
+ *
  * Fibonacci Recursive Classic: Input 3
- * 
+ *
  * Fibonacci Recursive: Input 3
  * 0 1 1
  * Number of addition operations counter 3
- * 
+ *
  * Fibonacci Iterative: Input 3
  * 0 1 1
  * Number of addition operations counter 2
- * 
+ *
  * Fibonacci Recursive with accumulator: Input 3
- * 
+ *
  * Fibonacci Recursive Classic: Input 10
- * 
+ *
  * Fibonacci Recursive: Input 10
  * 0 1 1 2 3 5 8 13 21 34
  * Number of addition operations counter 10
- * 
+ *
  * Fibonacci Iterative: Input 10
  * 0 1 1 2 3 5 8 13 21 34
  * Number of addition operations counter 9
- * 
+ *
  * Fibonacci Recursive with accumulator: Input 10
- * 
+ *
  * Fibonacci Recursive Classic: Input 20
- * 
+ *
  * Fibonacci Recursive: Input 20
  * 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
  * Number of addition operations counter 20
- * 
+ *
  * Fibonacci Iterative: Input 20
  * 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181
  * Number of addition operations counter 19
- * 
+ *
  * Fibonacci Recursive with accumulator: Input 20
  */
 int[] numbers = { 3, 10, 20 };
