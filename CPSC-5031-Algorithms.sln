@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Decrease-and-Conquer"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubstringSearch", "SubstringSearch\SubstringSearch.csproj", "{F89F1306-884E-4727-BA7F-CE3690CA0A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{F89F1306-884E-4727-BA7F-CE3690CA0A0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
