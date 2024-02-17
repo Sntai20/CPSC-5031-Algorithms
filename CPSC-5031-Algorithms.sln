@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Decrease-and-Conquer"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\SubstringSearch.csproj", "{F89F1306-884E-4727-BA7F-CE3690CA0A0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -45,6 +47,10 @@ Global
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|x64.Build.0 = Debug|x64
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.ActiveCfg = Release|x64
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.Build.0 = Release|x64
+		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Debug|x64.Build.0 = Debug|Any CPU
+		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Release|x64.ActiveCfg = Release|Any CPU
+		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
