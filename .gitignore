@@ -18,6 +18,7 @@ mono_crash.*
 
 # Build results
 [Dd]ebug/
+**/[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
@@ -29,6 +30,8 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
 [Ll]og/
 [Ll]ogs/
 
@@ -396,5 +399,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Mac
 .DS_Store
 **/.DS_Store
