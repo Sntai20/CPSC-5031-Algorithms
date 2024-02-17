@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Decrease-and-Conquer"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{F89F1306-884E-4727-BA7F-CE3690CA0A0E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubstringSearch", "SubstringSearch", "{D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +49,18 @@ Global
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|x64.Build.0 = Debug|x64
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.ActiveCfg = Release|x64
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.Build.0 = Release|x64
-		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Debug|x64.ActiveCfg = Debug|x64
-		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Debug|x64.Build.0 = Debug|x64
-		{F89F1306-884E-4727-BA7F-CE3690CA0A0E}.Release|x64.ActiveCfg = Release|x64
+		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Debug|x64.ActiveCfg = Debug|x64
+		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Debug|x64.Build.0 = Debug|x64
+		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Release|x64.ActiveCfg = Release|x64
+		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE84BCCB-88A5-46B0-ABF7-3B10DAFDB260}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
 	EndGlobalSection
 EndGlobal
