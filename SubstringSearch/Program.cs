@@ -3,7 +3,7 @@
  * is found, return the character index where U starts. If the substring is not found, return -1.
  */
 
-void substringSearch(string v)
+static void substringSearch(string v)
 {
     Console.WriteLine("Hello, World! {0}", v);
 }
