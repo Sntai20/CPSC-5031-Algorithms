@@ -13,10 +13,10 @@ namespace SubstringSearchTest;
 
 using SubstringSearch;
 
-public class SubstringSearchTest
+public class SubstringSearchMethodTest
 {
     [Fact]
-    public void SubstringSearchForSubStringValid()
+    public void SearchForSubStringhappyValid()
     {
         string inputString = "Happy happy joy joy";
         string inputSubString = "happy";
@@ -25,4 +25,37 @@ public class SubstringSearchTest
         int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
         Assert.Equal(expectedValue, actualValue);
     }
+
+    [Fact]
+    public void SearchForSubStringcatValid()
+    {
+        string inputString = "Where is the dog?";
+        string inputSubString = "cat";
+
+        int expectedValue = -1;
+        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
+        Assert.Equal(expectedValue, actualValue);
+    }
+
+    [Fact]
+    public void SearchForSubStringfunValid()
+    {
+        string inputString = "fun fun fun";
+        string inputSubString = "fun";
+
+        int expectedValue = 0;
+        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
+        Assert.Equal(expectedValue, actualValue);
+    }
+
+    [Fact]
+    public void SearchForSubStringMetooValid()
+    {
+        string inputString = "I love coding!";
+        string inputSubString = "Me too!";
+
+        int expectedValue = -1;
+        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
+        Assert.Equal(expectedValue, actualValue);
+    }      
 }
