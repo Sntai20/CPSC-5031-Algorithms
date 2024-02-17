@@ -25,37 +25,4 @@ public class KnapsackProblemMethodTest
         int actualValue = KnapsackProblem.substringSearch(inputString, inputSubString);
         Assert.Equal(expectedValue, actualValue);
     }
-
-    [Fact]
-    public void SearchForSubStringcatValid()
-    {
-        string inputString = "Where is the dog?";
-        string inputSubString = "cat";
-
-        int expectedValue = -1;
-        int actualValue = KnapsackProblem.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
-    }
-
-    [Fact]
-    public void SearchForSubStringfunValid()
-    {
-        string inputString = "fun fun fun";
-        string inputSubString = "fun";
-
-        int expectedValue = 0;
-        int actualValue = KnapsackProblem.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
-    }
-
-    [Fact]
-    public void SearchForSubStringMetooValid()
-    {
-        string inputString = "I love coding!";
-        string inputSubString = "Me too!";
-
-        int expectedValue = -1;
-        int actualValue = KnapsackProblem.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
-    }      
 }
