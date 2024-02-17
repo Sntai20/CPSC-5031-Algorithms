@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci", "Fibonacci\Fibo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubstringSearch", "SubstringSearch", "{D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearchTest", "SubstringSearch\test\SubstringSearchTest\SubstringSearchTest.csproj", "{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +51,14 @@ Global
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|x64.Build.0 = Debug|x64
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.ActiveCfg = Release|x64
 		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.Build.0 = Release|x64
-		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Debug|x64.ActiveCfg = Debug|x64
-		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Debug|x64.Build.0 = Debug|x64
-		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Release|x64.ActiveCfg = Release|x64
-		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB}.Release|x64.Build.0 = Release|x64
+		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Debug|x64.Build.0 = Debug|Any CPU
+		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Release|x64.ActiveCfg = Release|Any CPU
+		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Release|x64.Build.0 = Release|Any CPU
+		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Debug|x64.Build.0 = Debug|Any CPU
+		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Release|x64.ActiveCfg = Release|Any CPU
+		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		SolutionGuid = {FE84BCCB-88A5-46B0-ABF7-3B10DAFDB260}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{02EE867B-96C8-4C74-9D49-470FCB7EBBFB} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
+		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
+		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
 	EndGlobalSection
 EndGlobal
