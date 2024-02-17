@@ -19,7 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubstringSearch", "Substrin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearchTest", "SubstringSearch\test\SubstringSearchTest.csproj", "{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearch", "SubstringSearch\src\SubstringSearch.csproj", "{615FCA81-4067-4387-86E2-EB05C8BFA4FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KnapsackProblem", "KnapsackProblem", "{E42C862C-85B8-416A-A257-CFADF7A4ED00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnapsackProblem", "KnapsackProblem\src\KnapsackProblem.csproj", "{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnapsackProblemTest", "KnapsackProblem\test\KnapsackProblemTest.csproj", "{B1760C2C-33DD-4519-8C14-EB2ACC87E024}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +61,18 @@ Global
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Debug|x64.Build.0 = Debug|Any CPU
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Release|x64.ActiveCfg = Release|Any CPU
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Release|x64.Build.0 = Release|Any CPU
-		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Debug|x64.Build.0 = Debug|Any CPU
-		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Release|x64.ActiveCfg = Release|Any CPU
-		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E}.Release|x64.Build.0 = Release|Any CPU
+		{615FCA81-4067-4387-86E2-EB05C8BFA4FD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{615FCA81-4067-4387-86E2-EB05C8BFA4FD}.Debug|x64.Build.0 = Debug|Any CPU
+		{615FCA81-4067-4387-86E2-EB05C8BFA4FD}.Release|x64.ActiveCfg = Release|Any CPU
+		{615FCA81-4067-4387-86E2-EB05C8BFA4FD}.Release|x64.Build.0 = Release|Any CPU
+		{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9}.Debug|x64.Build.0 = Debug|Any CPU
+		{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9}.Release|x64.ActiveCfg = Release|Any CPU
+		{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9}.Release|x64.Build.0 = Release|Any CPU
+		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Debug|x64.Build.0 = Debug|Any CPU
+		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Release|x64.ActiveCfg = Release|Any CPU
+		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +82,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
-		{D6DFB8B5-A1E8-4A73-A811-451F8162E73E} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
+		{615FCA81-4067-4387-86E2-EB05C8BFA4FD} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
+		{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9} = {E42C862C-85B8-416A-A257-CFADF7A4ED00}
+		{B1760C2C-33DD-4519-8C14-EB2ACC87E024} = {E42C862C-85B8-416A-A257-CFADF7A4ED00}
 	EndGlobalSection
 EndGlobal
