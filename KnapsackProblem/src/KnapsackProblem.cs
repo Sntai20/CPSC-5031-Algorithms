@@ -2,38 +2,51 @@ namespace KnapsackProblem;
 
 public class KnapsackProblem
 {
-    public static int substringSearch(string inputString, string inputSubString)
+    public static int GetMaxValue(int capacity, int[] weights, int[] dollarValues)
     {
-        Console.WriteLine("String to search through: {0}", inputString);
-        Console.WriteLine("Substring to search for: {0}", inputSubString);
-
-        int characterMatchCount = 0;
-        for (int i = 0; i < inputString.Length; i++)
+        int count = 0;
+        if (weights.Length != dollarValues.Length)
         {
-            // Search for the first occurrence of the substring.
-            if (inputString[i] == inputSubString[0])
-            {
-                // If the substring is found, return the character index where U starts.
-                Console.Write(inputString[i]);
-                characterMatchCount++;
-                for (int j = 1; j < inputSubString.Length; j++)
-                {
-                    if (inputString[i + j] == inputSubString[j])
-                    {
-                        Console.Write(inputString[i + j]);
-                        characterMatchCount++;
-                    }
-                }
+            Console.WriteLine("Uneven number of weights and dollar values. Please enter weight and dollar for each item.");
+            return count;
+        }
+        else
+        {
+            count = weights.Length;
+        }
 
-                // Return the character index where U starts.
-                if (inputSubString.Length == characterMatchCount)
+        // Declare a two-dimensional array of integers named knapsack, which will contain the maximum dollar value of
+        // the items stored within the knapsack maximum capacity.
+        int[,] knapsack = new int[count + 1, capacity + 1];
+
+        for (int i = 0; i <= count; ++i)
+        {
+            for (int w = 0; w <= capacity; ++w)
+            {
+                // If the knapsack is empty, set the first row and column of the knapsack array to zero.
+                if (i == 0 || w == 0)
                 {
-                    Console.WriteLine("\nCharacter Index where U starts: {0}", inputString.IndexOf(inputString[i]));
-                    return inputString.IndexOf(inputString[i]);
+                    knapsack[i, w] = 0;
+                }
+                // Check if the weight of the current item (weights[i - 1]) is less than or equal to the current capacity (w).
+                // If yes, it means the item can be added to the knapsack.
+                else if (weights[i - 1] <= w)
+                {
+                    // Compare the value of the bag with the new item with the current value of the bag without the
+                    // item. Take the maximum of the two and stores it in knapsack[i, w].
+                    var valueOfBagWithNewItem = dollarValues[i - 1] + knapsack[i - 1, w - weights[i - 1]];
+                    var valueOfBag = knapsack[i - 1, w];
+                    knapsack[i, w] = Math.Max(valueOfBagWithNewItem, valueOfBag);
+                }
+                // Do not add the item to the knapsack, if the weight of the current item is greater than the current capacity.
+                else
+                {
+                    // Copy the value from the previous row (knapsack[i - 1, w]) and stores it in knapsack[i, w].
+                    knapsack[i, w] = knapsack[i - 1, w];
                 }
             }
         }
 
-        return -1;
+        return knapsack[count, capacity];
     }
 }
