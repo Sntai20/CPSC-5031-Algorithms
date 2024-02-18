@@ -16,46 +16,137 @@ using SubstringSearch;
 public class SubstringSearchMethodTest
 {
     [Fact]
-    public void SearchForSubStringhappyValid()
+    public void SearchForSubString_WhenInputStringContainshappy_ReturnSix()
     {
+        // Arrange
         string inputString = "Happy happy joy joy";
         string inputSubString = "happy";
+        int expected = 6;
 
-        int expectedValue = 6;
-        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
     }
 
     [Fact]
-    public void SearchForSubStringcatValid()
+    public void SearchForSubString_WhenInputStringContainscat_ReturnNegativeOne()
     {
+        // Arrange
         string inputString = "Where is the dog?";
         string inputSubString = "cat";
+        int expected = -1;
 
-        int expectedValue = -1;
-        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
     }
 
     [Fact]
-    public void SearchForSubStringfunValid()
+    public void SearchForSubString_WhenInputStringContainsfun_ReturnZero()
     {
+        // Arrange
         string inputString = "fun fun fun";
         string inputSubString = "fun";
+        int expected = 0;
 
-        int expectedValue = 0;
-        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
     }
 
     [Fact]
-    public void SearchForSubStringMetooValid()
+    public void SearchForSubString_WhenInputStringContainsMetoo_ReturnNegativeOne()
     {
+        // Arrange
         string inputString = "I love coding!";
         string inputSubString = "Me too!";
+        int expected = -1;
 
-        int expectedValue = -1;
-        int actualValue = SubstringSearch.substringSearch(inputString, inputSubString);
-        Assert.Equal(expectedValue, actualValue);
-    }      
-}
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void SubstringSearch_WhenInputStringContainsInputSubstring_ReturnsIndexOfFirstOccurrence()
+    {
+        // Arrange
+        string inputString = "Hello, world!";
+        string inputSubString = "world";
+        int expected = 7;
+
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void SubstringSearch_WhenInputStringDoesNotContainInputSubstring_ReturnsMinusOne()
+    {
+        // Arrange
+        string inputString = "Hello, world!";
+        string inputSubString = "foo";
+        int expected = -1;
+
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void SubstringSearch_WhenInputStringIsEmpty_ReturnsMinusOne()
+    {
+        // Arrange
+        string inputString = "";
+        string inputSubString = "foo";
+        int expected = -1;
+
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void SubstringSearch_WhenInputSubstringIsEmpty_ReturnsMinusOne()
+    {
+        // Arrange
+        string inputString = "Hello, world!";
+        string inputSubString = "";
+        int expected = -1;
+
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void SubstringSearch_WhenInputSubstringIsLongerThanInputString_ReturnsMinusOne()
+    {
+        // Arrange
+        string inputString = "Hello";
+        string inputSubString = "Hello, world!";
+        int expected = -1;
+
+        // Act
+        int actual = SubstringSearch.substringSearch(inputString, inputSubString);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+}       

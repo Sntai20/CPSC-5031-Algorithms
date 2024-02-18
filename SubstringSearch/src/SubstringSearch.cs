@@ -4,6 +4,18 @@ public class SubstringSearch
 {
     public static int substringSearch(string inputString, string inputSubString)
     {
+        if (string.IsNullOrEmpty(inputString) || string.IsNullOrEmpty(inputSubString))
+        {
+            Console.WriteLine("String or Substring cannot be null or empty.");
+            return -1;
+        }
+
+        if (inputSubString.Length > inputString.Length)
+        {
+            Console.WriteLine("Substring cannot longer than the String.");
+            return -1;
+        }
+
         Console.WriteLine("String to search through: {0}", inputString);
         Console.WriteLine("Substring to search for: {0}", inputSubString);
 
