@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Fake-Coin-Problem", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Decrease-and-Conquer", "Week3-Decrease-and-Conquer\Week3-Decrease-and-Conquer.csproj", "{0EC4B989-2BE6-47ED-876B-CF1C85029130}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubstringSearch", "SubstringSearch", "{D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubstringSearchTest", "SubstringSearch\test\SubstringSearchTest.csproj", "{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}"
@@ -26,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnapsackProblem", "KnapsackProblem\src\KnapsackProblem.csproj", "{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnapsackProblemTest", "KnapsackProblem\test\KnapsackProblemTest.csproj", "{B1760C2C-33DD-4519-8C14-EB2ACC87E024}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{894940BA-EC87-4B47-96EC-AC877700BB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnapsackProblemDriver", "KnapsackProblemDriver\KnapsackProblemDriver\KnapsackProblemDriver.csproj", "{1440F7FC-9FB7-4DEE-ACEE-5245C78D2EA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +55,6 @@ Global
 		{0EC4B989-2BE6-47ED-876B-CF1C85029130}.Debug|x64.Build.0 = Debug|x64
 		{0EC4B989-2BE6-47ED-876B-CF1C85029130}.Release|x64.ActiveCfg = Release|x64
 		{0EC4B989-2BE6-47ED-876B-CF1C85029130}.Release|x64.Build.0 = Release|x64
-		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|x64.ActiveCfg = Debug|x64
-		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Debug|x64.Build.0 = Debug|x64
-		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.ActiveCfg = Release|x64
-		{F6B27DCB-6CC5-4EB2-B79F-37CA6719EE28}.Release|x64.Build.0 = Release|x64
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Debug|x64.Build.0 = Debug|Any CPU
 		{52AD4A71-B57D-4073-A3A8-DC5BA36EEBA2}.Release|x64.ActiveCfg = Release|Any CPU
@@ -73,6 +71,14 @@ Global
 		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Debug|x64.Build.0 = Debug|Any CPU
 		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Release|x64.ActiveCfg = Release|Any CPU
 		{B1760C2C-33DD-4519-8C14-EB2ACC87E024}.Release|x64.Build.0 = Release|Any CPU
+		{894940BA-EC87-4B47-96EC-AC877700BB51}.Debug|x64.ActiveCfg = Debug|x64
+		{894940BA-EC87-4B47-96EC-AC877700BB51}.Debug|x64.Build.0 = Debug|x64
+		{894940BA-EC87-4B47-96EC-AC877700BB51}.Release|x64.ActiveCfg = Release|x64
+		{894940BA-EC87-4B47-96EC-AC877700BB51}.Release|x64.Build.0 = Release|x64
+		{1440F7FC-9FB7-4DEE-ACEE-5245C78D2EA6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1440F7FC-9FB7-4DEE-ACEE-5245C78D2EA6}.Debug|x64.Build.0 = Debug|Any CPU
+		{1440F7FC-9FB7-4DEE-ACEE-5245C78D2EA6}.Release|x64.ActiveCfg = Release|Any CPU
+		{1440F7FC-9FB7-4DEE-ACEE-5245C78D2EA6}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,5 +91,6 @@ Global
 		{615FCA81-4067-4387-86E2-EB05C8BFA4FD} = {D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}
 		{85DC64B2-DC96-4560-94E4-09CD9D1FB8F9} = {E42C862C-85B8-416A-A257-CFADF7A4ED00}
 		{B1760C2C-33DD-4519-8C14-EB2ACC87E024} = {E42C862C-85B8-416A-A257-CFADF7A4ED00}
+		{1440F7FC-9FB7-4DEE-ACEE-5245C78D2EA6} = {E42C862C-85B8-416A-A257-CFADF7A4ED00}
 	EndGlobalSection
 EndGlobal

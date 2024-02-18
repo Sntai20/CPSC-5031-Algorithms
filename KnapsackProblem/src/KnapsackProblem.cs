@@ -19,6 +19,7 @@ public class KnapsackProblem
         // the items stored within the knapsack maximum capacity.
         int[,] knapsack = new int[count + 1, capacity + 1];
 
+        Console.WriteLine($"Total weight  Total value ");
         for (int i = 0; i <= count; ++i)
         {
             for (int w = 0; w <= capacity; ++w)
@@ -37,6 +38,7 @@ public class KnapsackProblem
                     var valueOfBagWithNewItem = dollarValues[i - 1] + knapsack[i - 1, w - weights[i - 1]];
                     var valueOfBag = knapsack[i - 1, w];
                     knapsack[i, w] = Math.Max(valueOfBagWithNewItem, valueOfBag);
+                    Console.WriteLine($"{w}             {knapsack[i, w]}");
                 }
                 // Do not add the item to the knapsack, if the weight of the current item is greater than the current capacity.
                 else
