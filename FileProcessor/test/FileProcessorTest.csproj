@@ -25,4 +25,17 @@
   <ItemGroup>
     <ProjectReference Include="..\src\FileProcessor.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\" />
+    <None Remove="Resources\data.txt" />
+    <None Remove="Resources\emptydata.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
