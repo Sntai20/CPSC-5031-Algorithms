@@ -1,3 +1,6 @@
+using System.Security.Cryptography;
+using System.Text;
+
 namespace FileProcessor;
 
 public class FileProcessor
@@ -29,5 +32,21 @@ public class FileProcessor
         }
 
         return fileProcessedCount;
+    }
+
+    public static string GetSHA256HashFromFile(string fileName)
+    {
+        using FileStream file = new(fileName, FileMode.Open);
+        SHA256 sha256 = SHA256.Create();
+        byte[] hashBytes = sha256.ComputeHash(file);
+
+        // Convert the hash bytes to a hexadecimal string.
+        StringBuilder sb = new();
+        foreach (byte b in hashBytes)
+        {
+            sb.Append(b.ToString("x2"));
+        }
+
+        return sb.ToString();
     }
 }

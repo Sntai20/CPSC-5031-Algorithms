@@ -35,4 +35,32 @@ public class FileProcessorTest
         // Assert
         Assert.Equal(expected, actual);
     }
+
+    [Fact]
+    public void GetSHA256HashFromFile_WhenFileContainsTwoEntries_ReturnSHA256Hash()
+    {
+        // Arrange
+        string filePath = "Resources//data.txt";
+        var expected = "4bd2ff212e7fd881d4e8cbb56bb1c817db63bd508b2958ef34d57aee06dc46f3";
+
+        // Act
+        var actual = FileProcessor.GetSHA256HashFromFile(filePath);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void GetSHA256HashFromFile_WhenFileEmpty_ReturnSHA256Hash()
+    {
+        // Arrange
+        string filePath = "Resources//emptydata.txt";
+        var expected = "b75a2aa61b4062dd7c4b8cd0f02b817e734f15e9524d49ed36aa4b9348b9464e";
+
+        // Act
+        var actual = FileProcessor.GetSHA256HashFromFile(filePath);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
 }
