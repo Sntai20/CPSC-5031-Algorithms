@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>Week1_Algorithm_Analysis</RootNamespace>
+    <RootNamespace>BruteForce</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>x64</Platforms>

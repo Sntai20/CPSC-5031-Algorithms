@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week1-Algorithm-Analysis", "Week1-Algorithm-Analysis\Week1-Algorithm-Analysis.csproj", "{427C4CF6-6345-48DB-A32F-DDBFF2F62E78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgorithmAnalysis", "AlgorithmAnalysis\AlgorithmAnalysis.csproj", "{427C4CF6-6345-48DB-A32F-DDBFF2F62E78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week2-Brute-Force", "Week2-Brute-Force\Week2-Brute-Force.csproj", "{BAE842F2-E8AB-4D6F-B830-1BD68A88D5C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BruteForce", "BruteForce\BruteForce.csproj", "{BAE842F2-E8AB-4D6F-B830-1BD68A88D5C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Exhaustive-Search", "Week3-Exhaustive-Search\Week3-Exhaustive-Search.csproj", "{7CF763AF-916C-488F-B712-2776EE33E28A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExhaustiveSearch", "ExhaustiveSearch\ExhaustiveSearch.csproj", "{7CF763AF-916C-488F-B712-2776EE33E28A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Fake-Coin-Problem", "Week3-Fake-Coin-Problem\Week3-Fake-Coin-Problem.csproj", "{84F409ED-B4C8-47D5-8589-9F0F9FFDA6CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeCoinProblem", "FakeCoinProblem\FakeCoinProblem.csproj", "{84F409ED-B4C8-47D5-8589-9F0F9FFDA6CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week3-Decrease-and-Conquer", "Week3-Decrease-and-Conquer\Week3-Decrease-and-Conquer.csproj", "{0EC4B989-2BE6-47ED-876B-CF1C85029130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecreaseAndConquer", "DecreaseAndConquer\DecreaseAndConquer.csproj", "{0EC4B989-2BE6-47ED-876B-CF1C85029130}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SubstringSearch", "SubstringSearch", "{D5F7FE11-9A33-4B35-8EB6-D59B8585A1DF}"
 EndProject

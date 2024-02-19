@@ -49,7 +49,7 @@ class MainClass
     private static string ReadFromFile()
     {
         string fileName = "data.txt";
-        string projectFolder = "Week1-Algorithm-Analysis";
+        string projectFolder = "AlgorithmAnalysis";
         string solutionFolderPath = "/Users/antonio/repo/CPSC-5031-Algorithms/";
         string fullFilePath = $"{solutionFolderPath}/{projectFolder}/{fileName}";
 

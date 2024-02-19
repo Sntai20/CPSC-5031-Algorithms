@@ -31,7 +31,7 @@
 
             // As long as j is not at the begining of the array and if the value in
             // the j element is larger than the value of current element's value,
-            // compare each character with j 
+            // compare each character with j
             while (j >= 0 && intArray[j] > v)
             {
                 intArray[j + 1] = intArray[j];
@@ -60,7 +60,7 @@
             //Console.WriteLine($"For characterArray[i] {characterArray[i]}");
 
             // As long as j is not at the begining of the array and if j is larger
-            // than the current element,  compare each character with j 
+            // than the current element,  compare each character with j
             while (j >= 0 && characterArray[j] > v)
             {
                 characterArray[j + 1] = characterArray[j];
@@ -97,7 +97,7 @@
         // Then output the number of CABAAXBYA found in the file.
 
         string fileName = "data.txt";
-        string projectFolder = "Week3-Decrease-and-Conquer";
+        string projectFolder = "DecreaseAndConquer";
         string solutionFolderPath = "/Users/antonio/repo/CPSC-5031-Algorithms/";
         string fullFilePath = $"{solutionFolderPath}/{projectFolder}/{fileName}";
 
