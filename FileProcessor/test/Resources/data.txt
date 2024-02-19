@@ -1,2 +1,3 @@
 ﻿#Fields: Item,Message,ElapsedTime,ExpectedFilePathMessage
 data.txt,1,2,ThisIsTheExpectedFilePathMessage
+data2.txt,3,4,ThisIsTheExpectedFilePathMessage2

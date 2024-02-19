@@ -23,11 +23,11 @@ public class FileProcessorTest
     }
 
     [Fact]
-    public void ProcessData_WhenFileContainsOneEntry_ReturnOne()
+    public void ProcessData_WhenFileContainsTwoEntries_ReturnTwo()
     {
         // Arrange
         string filePath = "Resources//data.txt";
-        var expected = 1;
+        var expected = 2;
 
         // Act
         var actual = FileProcessor.ProcessData(filePath);

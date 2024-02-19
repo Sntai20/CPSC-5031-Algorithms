@@ -2,12 +2,11 @@ namespace FileProcessor;
 
 public class FileProcessor
 {
-    public static int ProcessData(string fullFilePath)
+    public static int ProcessData(string pathToFile)
     {
-        // Read text from csv file and store in string.
-        Console.Write($"Reading file {fullFilePath}");
+        Console.Write($"Reading file {pathToFile}");
 
-        var listOfItems = File.ReadAllLines(fullFilePath)
+        var listOfItems = File.ReadAllLines(pathToFile)
             .Skip(1)
             .Select(line => line.Split(','))
             .Select(tokens => new
@@ -18,14 +17,17 @@ public class FileProcessor
                 ExpectedFilePathMessage = tokens
             });
 
+        int fileProcessedCount = 0;
         foreach (var item in listOfItems)
         {
             if (item.Item[0] == "#EOF")
             {
-                return 0;
+                Console.WriteLine("End of file");
+                return fileProcessedCount;
             }
+            fileProcessedCount++;
         }
 
-        return 1;
+        return fileProcessedCount;
     }
 }
