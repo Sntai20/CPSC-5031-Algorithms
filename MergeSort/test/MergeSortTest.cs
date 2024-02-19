@@ -1,11 +1,23 @@
 /* Name: Antonio Santana
- * Problem: In figure (a), you have a knapsack (bag) that can hold a maximum weight of 10. There are four
- * items with given weights and dollar values. What is the maximum value you can put in the knapsack?
+ * Problem: Implement MergeSort algorithm shown in class and in the textbook to sort an array A in ascending order.
  *
- * Knapsack (bag) can hold a maximum weight of 10. Here is the test case to include:
- * Items  1  2  3  4
- * Weight 7  3  4  5
- * Dollar 42 12 40 25
+ * Here are the test cases you should include:
+ * Test Case #  A
+ * 1            []
+ * 2            [ 0, 1, 2, 3 ]
+ * 3            [ 0, 1, 2, 3, 4 ]
+ * 4            [ 3, 1, 4, 1, 5, 9, 2, 6, 5 ]
+ * 5            [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+ * 
+ * Part 2: Test cases
+ * Having good test cases is very important when writing code. Good test cases not only test the “happy path” of your
+ * code, but also test the boundary conditions where things can get strange. Of the 5 test cases shown above, only #5
+ * specifically tests the “happy path”. The rest test boundaries.
+ * 
+ * Answer these questions in your homework submission:
+ * 1. Why is test case #1 important?
+ * 2. What’s the key difference between test cases #2 and #3? Why is this important when testing MergeSort?
+ * 3. Test case #4 is some digits of π. What else is important about test case #4?
  */
 namespace MergeSortTest;
 
@@ -14,112 +26,43 @@ using MergeSort;
 public class MergeSortTest
 {
     [Fact]
-    public void GetMaxValue_WhenFourItems_ReturnSixtyFiveDollars()
+    public void Sort_WhenInputEmptyArray_ReturnEmptyArray()
     {
         // Arrange
-        int maximumWeightCapacity = 10;
-        int[] weights = { 7, 3, 4, 5 };
-        int[] dollarValues = { 42, 12, 40, 25 };
-        int expected = 65;
+        int[] emptyArray = Array.Empty<int>();
+        int[] expected = Array.Empty<int>();
 
         // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
+        int[] actual = MergeSort.Sort(emptyArray);
 
         // Assert
         Assert.Equal(expected, actual);
     }
 
     [Fact]
-    public void GetMaxValue_WhenOneItem_ReturnFortyTwoDollars()
+    public void Sort_WhenInputSortedArray_ReturnSortedArray()
     {
         // Arrange
-        int maximumWeightCapacity = 10;
-        int[] weights = { 7 };
-        int[] dollarValues = { 42 };
-        int expected = 42;
+        int[] sortedArray = { 12 };
+        int[] expected = { 12 };
 
         // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
+        int[] actual = MergeSort.Sort(sortedArray);
 
         // Assert
         Assert.Equal(expected, actual);
+        Assert.Single(actual);
     }
 
     [Fact]
-    public void GetMaxValue_WhenWeightsOrDollarValuesAreEmpty_ReturnsZero()
+    public void Sort_WhenInputUnsortedArray_ReturnSortedArray()
     {
         // Arrange
-        int maximumWeightCapacity = 10;
-        int[] weights = Array.Empty<int>();
-        int[] dollarValues = Array.Empty<int>();
-        int expected = 0;
+        int[] unsortedArray = { 12, 11, 13, 5, 6, 7 };
+        int[] expected = { 5, 6, 7, 11, 12, 13 };
 
         // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
-
-        // Assert
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void GetMaxValue_WhenWeightsAndDollarValuesAreNotEqualLength_ReturnsZero()
-    {
-        // Arrange
-        int maximumWeightCapacity = 10;
-        int[] weights = { 7, 3 };
-        int[] dollarValues = { 42 };
-        int expected = 0;
-
-        // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
-
-        // Assert
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void GetMaxValue_WhenWeightsAndDollarValuesAreEqualLength_ReturnsMaxValue()
-    {
-        // Arrange
-        int maximumWeightCapacity = 10;
-        int[] weights = { 2, 4, 6, 8 };
-        int[] dollarValues = { 3, 5, 7, 9 };
-        int expected = 12;
-
-        // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
-
-        // Assert
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void GetMaxValue_WhenCapacityIsZero_ReturnsZero()
-    {
-        // Arrange
-        int maximumWeightCapacity = 0;
-        int[] weights = { 2, 4, 6, 8 };
-        int[] dollarValues = { 3, 5, 7, 9 };
-        int expected = 0;
-
-        // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
-
-        // Assert
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void GetMaxValue_WhenCapacityIsLessThanAnyWeight_ReturnsZero()
-    {
-        // Arrange
-        int maximumWeightCapacity = 1;
-        int[] weights = { 2, 4, 6, 8 };
-        int[] dollarValues = { 3, 5, 7, 9 };
-        int expected = 0;
-
-        // Act
-        int actual = MergeSort.GetMaxValue(maximumWeightCapacity, weights, dollarValues);
+        int[] actual = MergeSort.Sort(unsortedArray);
 
         // Assert
         Assert.Equal(expected, actual);
