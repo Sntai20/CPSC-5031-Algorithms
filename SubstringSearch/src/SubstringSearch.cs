@@ -12,7 +12,7 @@ public class SubstringSearch
 
         if (inputSubString.Length > inputString.Length)
         {
-            Console.WriteLine("Substring cannot longer than the String.");
+            Console.WriteLine("Substring cannot be longer than the String.");
             return -1;
         }
 

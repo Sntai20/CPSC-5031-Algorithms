@@ -31,7 +31,7 @@ public class SubstringSearchMethodTest
     }
 
     [Fact]
-    public void SearchForSubString_WhenInputStringContainscat_ReturnNegativeOne()
+    public void SearchForSubString_WhenInputStringContainscat_ReturnsMinusOne()
     {
         // Arrange
         string inputString = "Where is the dog?";
@@ -61,7 +61,7 @@ public class SubstringSearchMethodTest
     }
 
     [Fact]
-    public void SearchForSubString_WhenInputStringContainsMetoo_ReturnNegativeOne()
+    public void SearchForSubString_WhenInputStringContainsMetoo_ReturnsMinusOne()
     {
         // Arrange
         string inputString = "I love coding!";
