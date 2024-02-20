@@ -40,6 +40,48 @@ public class MergeSortTest
     }
 
     [Fact]
+    public void Sort_WhenInputIsSortedArray_ReturnSortedArray()
+    {
+        // Arrange
+        int[] sortedArray = { 0, 1, 2, 3 };
+        int[] expected = { 0, 1, 2, 3 };
+
+        // Act
+        int[] actual = MergeSort.Sort(sortedArray);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Sort_WhenInputIsSortedArrayWithFiveElements_ReturnSortedArray()
+    {
+        // Arrange
+        int[] sortedArray = { 0, 1, 2, 3, 4 };
+        int[] expected = { 0, 1, 2, 3, 4 };
+
+        // Act
+        int[] actual = MergeSort.Sort(sortedArray);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Sort_WhenInputIsUnsortedArray_ReturnSortedArray()
+    {
+        // Arrange
+        int[] sortedArray = { 3, 1, 4, 1, 5, 9, 2, 6, 5 };
+        int[] expected = { 1, 1, 2, 3, 4, 5, 5, 6, 9 };
+
+        // Act
+        int[] actual = MergeSort.Sort(sortedArray);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
     public void Sort_WhenInputSortedArray_ReturnSortedArray()
     {
         // Arrange

@@ -2,7 +2,7 @@ namespace MergeSort;
 
 public class MergeSort
 {
-    // Merges two subarrays of []array. First subarray is array[l..m] Second subarray is array[m+1..r]
+    // Merges two subarrays of []array. First subarray is array[l..m] Second subarray is array[m+1..r].
     public static void Merge(int[] array, int left, int middle, int right)
     {
         // Find sizes of two subarrays to be merged.
@@ -23,8 +23,6 @@ public class MergeSort
         {
             tempRight[j] = array[middle + 1 + j];
         }
-
-        // Merge the temp arrays.
 
         // Initial indexes of first and second subarrays.
         i = 0;
@@ -108,16 +106,5 @@ public class MergeSort
             Console.Write(array[i] + " ");
         }
         Console.WriteLine();
-    }
-
-    // Driver code
-    public static void Main()
-    {
-        int[] array = { 12, 11, 13, 5, 6, 7 };
-        Console.WriteLine("Given array is");
-        printArray(array);
-        Sort(array, 0, array.Length - 1);
-        Console.WriteLine("\nSorted array is");
-        printArray(array);
     }
 }
