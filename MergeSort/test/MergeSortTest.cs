@@ -26,6 +26,37 @@ using MergeSort;
 public class MergeSortTest
 {
     [Fact]
+    public void Merge_WhenValidInput_MergesSubarraysCorrectly()
+    {
+        // Arrange
+        int[] actual = { 5, 2, 9, 1, 5, 6 };
+        int left = 0;
+        int middle = 2;
+        int right = 5;
+        int[] expected = { 1, 5, 2, 5, 6, 9 };
+
+        // Act
+        MergeSort.Merge(actual, left, middle, right);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Sort_WhenValidInput_SortsArrayCorrectly()
+    {
+        // Arrange
+        int[] unsortedArray = { 5, 2, 9, 1, 5, 6 };
+        int[] expected = { 1, 2, 5, 5, 6, 9 };
+
+        // Act
+        int[] actual = MergeSort.Sort(unsortedArray, 0, unsortedArray.Length - 1);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
     public void Sort_WhenInputEmptyArray_ReturnEmptyArray()
     {
         // Arrange

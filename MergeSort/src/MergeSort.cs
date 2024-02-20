@@ -63,7 +63,7 @@ public class MergeSort
     }
 
     // Sort the array[l..r] using merge()
-    private static int[] Sort(int[] array, int left, int right)
+    public static int[] Sort(int[] array, int left, int right)
     {
         if (left < right)
         {
