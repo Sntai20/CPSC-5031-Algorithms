@@ -58,18 +58,20 @@ public class MergeSort
     // Sort the array[left..right] using Merge().
     public static int[] Sort(int[] array, int left, int right)
     {
-        if (left < right)
+        if (left >= right)
         {
-            // Find the middle point.
-            int middle = left + (right - left) / 2;
-
-            // Sort first and second halves.
-            Sort(array, left, middle);
-            Sort(array, middle + 1, right);
-
-            // Merge the sorted halves.
-            Merge(array, left, middle, right);
+            return array;
         }
+
+        // Find the middle point.
+        int middle = left + (right - left) / 2;
+
+        // Sort first and second halves.
+        Sort(array, left, middle);
+        Sort(array, middle + 1, right);
+
+        // Merge the sorted halves.
+        Merge(array, left, middle, right);
 
         return array;
     }
