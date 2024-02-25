@@ -108,7 +108,7 @@ public class MergeSort
         }
         else
         {
-            return Sort(array, 0, array.Length - 1); ;
+            return Sort(array, 0, array.Length - 1);
         }
     }
 }
