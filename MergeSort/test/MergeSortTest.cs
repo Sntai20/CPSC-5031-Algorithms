@@ -1,5 +1,6 @@
 /* Name: Antonio Santana
  * Problem: Implement MergeSort algorithm shown in class and in the textbook to sort an array A in ascending order.
+ * MergeSort’s time complexity is O(n log n), where n is the input size.
  *
  * Here are the test cases you should include:
  * Test Case #  Array
