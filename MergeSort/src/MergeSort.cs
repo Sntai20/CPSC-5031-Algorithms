@@ -1,21 +1,28 @@
 namespace MergeSort;
 
+/// <summary>
+/// An implementation of the merge sort algorithm.
+/// </summary>
 public class MergeSort
 {
+    /// <summary>
+    /// Merges two subarrays within the given array. It calculates the sizes of the left and right subarrays, creates
+    /// temporary arrays, and then merges the elements back into the original array.
+    /// </summary>
+    /// <param name="array">The original array.</param>
+    /// <param name="left">The left index of the current subarray.</param>
+    /// <param name="middle">The middle of the original array.</param>
+    /// <param name="right">The right index of the current subarray.</param>
     public static void Merge(int[] array, int left, int middle, int right)
     {
         // Find sizes of two subarrays to be merged.
         int lengthOfTempLeftArray = middle - left + 1;
         int lengthOfTempRightArray = right - middle;
 
-        // Create temp arrays.
-        int[] tempLeft = new int[lengthOfTempLeftArray];
-        int[] tempRight = new int[lengthOfTempRightArray];
-
-        // Copy a range of elements from the original array to the temporary arrays. This method is an O(n)
-        // operation, where n is length. https://learn.microsoft.com/dotnet/api/system.array.copy?view=net-8.0
-        Array.Copy(array, left, tempLeft, 0, lengthOfTempLeftArray);
-        Array.Copy(array, middle + 1, tempRight, 0, lengthOfTempRightArray);
+        // Create temporary arrays and copy a range of elements from the original array to the temporary arrays. This
+        // method is an O(n) operation, where n is length. https://learn.microsoft.com/dotnet/csharp/tutorials/ranges-indexes
+        int[] tempLeft = array[left..(left + lengthOfTempLeftArray)];
+        int[] tempRight = array[(middle + 1)..(middle + 1 + lengthOfTempRightArray)];
 
         // Initial indexes of first subarray, second subarray, and the merged array.
         int i = 0;
@@ -55,7 +62,13 @@ public class MergeSort
         }
     }
 
-    // Sort the array[left..right] using Merge().
+    /// <summary>
+    /// Sort the array[left..right] using Merge().
+    /// </summary>
+    /// <param name="array">The input array which to sort.</param>
+    /// <param name="left">The left index of the current subarray.</param>
+    /// <param name="right">The right index of the current subarray.</param>
+    /// <returns>A sorted array.</returns>
     public static int[] Sort(int[] array, int left, int right)
     {
         if (left >= right)
@@ -76,7 +89,11 @@ public class MergeSort
         return array;
     }
 
-    // Helper method with input validation.
+    /// <summary>
+    /// Helper method with input validation serves as the entry point for sorting.
+    /// </summary>
+    /// <param name="array">The input array which to sort.</param>
+    /// <returns>A sorted array.</returns>
     public static int[] Sort(int[] array)
     {
         if (array.Length == 0)
