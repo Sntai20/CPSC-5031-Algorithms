@@ -2,35 +2,28 @@ namespace MergeSort;
 
 public class MergeSort
 {
-    // Merges two subarrays of []array. First subarray is array[l..m] Second subarray is array[m+1..r].
     public static void Merge(int[] array, int left, int middle, int right)
     {
         // Find sizes of two subarrays to be merged.
-        int n1 = middle - left + 1;
-        int n2 = right - middle;
+        int lengthOfTempLeftArray = middle - left + 1;
+        int lengthOfTempRightArray = right - middle;
 
         // Create temp arrays.
-        int[] tempLeft = new int[n1];
-        int[] tempRight = new int[n2];
-        int i, j;
+        int[] tempLeft = new int[lengthOfTempLeftArray];
+        int[] tempRight = new int[lengthOfTempRightArray];
 
-        // Copy data to temp arrays.
-        for (i = 0; i < n1; ++i)
-        {
-            tempLeft[i] = array[left + i];
-        }
-        for (j = 0; j < n2; ++j)
-        {
-            tempRight[j] = array[middle + 1 + j];
-        }
+        // Copy a range of elements from the original array to the temporary arrays. This method is an O(n)
+        // operation, where n is length. https://learn.microsoft.com/dotnet/api/system.array.copy?view=net-8.0
+        Array.Copy(array, left, tempLeft, 0, lengthOfTempLeftArray);
+        Array.Copy(array, middle + 1, tempRight, 0, lengthOfTempRightArray);
 
-        // Initial indexes of first and second subarrays.
-        i = 0;
-        j = 0;
-
-        // Initial index of merged subarray array.
+        // Initial indexes of first subarray, second subarray, and the merged array.
+        int i = 0;
+        int j = 0;
         int k = left;
-        while (i < n1 && j < n2)
+
+        // Merge the subarrays. First subarray is array[left..middle]. Second subarray is array[middle+1..right].
+        while (i < lengthOfTempLeftArray && j < lengthOfTempRightArray)
         {
             if (tempLeft[i] <= tempRight[j])
             {
@@ -45,16 +38,16 @@ public class MergeSort
             k++;
         }
 
-        // Copy remaining elements of L[] if any.
-        while (i < n1)
+        // Copy remaining elements of tempLeft[] if any.
+        while (i < lengthOfTempLeftArray)
         {
             array[k] = tempLeft[i];
             i++;
             k++;
         }
 
-        // Copy remaining elements of R[] if any.
-        while (j < n2)
+        // Copy remaining elements of tempRight[] if any.
+        while (j < lengthOfTempRightArray)
         {
             array[k] = tempRight[j];
             j++;
@@ -62,7 +55,7 @@ public class MergeSort
         }
     }
 
-    // Sort the array[l..r] using merge()
+    // Sort the array[left..right] using Merge().
     public static int[] Sort(int[] array, int left, int right)
     {
         if (left < right)
@@ -81,6 +74,7 @@ public class MergeSort
         return array;
     }
 
+    // Helper method with input validation.
     public static int[] Sort(int[] array)
     {
         if (array.Length == 0)
@@ -97,14 +91,5 @@ public class MergeSort
         {
             return Sort(array, 0, array.Length - 1); ;
         }
-    }
-
-    public static void printArray(int[] array)
-    {
-        for (int i = 0; i < array.Length; ++i)
-        {
-            Console.Write(array[i] + " ");
-        }
-        Console.WriteLine();
     }
 }

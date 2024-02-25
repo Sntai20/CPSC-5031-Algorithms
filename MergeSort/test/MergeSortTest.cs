@@ -26,37 +26,6 @@ using MergeSort;
 public class MergeSortTest
 {
     [Fact]
-    public void Merge_WhenValidInput_MergesSubarraysCorrectly()
-    {
-        // Arrange
-        int[] actual = { 5, 2, 9, 1, 5, 6 };
-        int left = 0;
-        int middle = 2;
-        int right = 5;
-        int[] expected = { 1, 5, 2, 5, 6, 9 };
-
-        // Act
-        MergeSort.Merge(actual, left, middle, right);
-
-        // Assert
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact]
-    public void Sort_WhenValidInput_SortsArrayCorrectly()
-    {
-        // Arrange
-        int[] unsortedArray = { 5, 2, 9, 1, 5, 6 };
-        int[] expected = { 1, 2, 5, 5, 6, 9 };
-
-        // Act
-        int[] actual = MergeSort.Sort(unsortedArray, 0, unsortedArray.Length - 1);
-
-        // Assert
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact]
     public void Sort_WhenInputEmptyArray_ReturnEmptyArray()
     {
         // Arrange
@@ -107,6 +76,51 @@ public class MergeSortTest
 
         // Act
         int[] actual = MergeSort.Sort(sortedArray);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Sort_WhenInputIsSortedArrayInDecendingOrder_ReturnSortedArrayAscendingOrder()
+    {
+        // Arrange
+        int[] sortedArray = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+        int[] expected = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        // Act
+        int[] actual = MergeSort.Sort(sortedArray);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Merge_WhenValidInput_MergesSubarraysCorrectly()
+    {
+        // Arrange
+        int[] actual = { 2, 5, 9, 1, 5, 6 };
+        int left = 0;
+        int middle = 2;
+        int right = 5;
+        int[] expected = { 1, 2, 5, 5, 6, 9 };
+
+        // Act
+        MergeSort.Merge(actual, left, middle, right);
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void Sort_WhenValidInput_SortsArrayCorrectly()
+    {
+        // Arrange
+        int[] unsortedArray = { 5, 2, 9, 1, 5, 6 };
+        int[] expected = { 1, 2, 5, 5, 6, 9 };
+
+        // Act
+        int[] actual = MergeSort.Sort(unsortedArray, 0, unsortedArray.Length - 1);
 
         // Assert
         Assert.Equal(expected, actual);
