@@ -2,12 +2,12 @@
  * Problem: Implement MergeSort algorithm shown in class and in the textbook to sort an array A in ascending order.
  *
  * Here are the test cases you should include:
- * Test Case #  A
- * 1            []
- * 2            [ 0, 1, 2, 3 ]
- * 3            [ 0, 1, 2, 3, 4 ]
- * 4            [ 3, 1, 4, 1, 5, 9, 2, 6, 5 ]
- * 5            [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+ * Test Case #  Array
+ *     1        []
+ *     2        [ 0, 1, 2, 3 ]
+ *     3        [ 0, 1, 2, 3, 4 ]
+ *     4        [ 3, 1, 4, 1, 5, 9, 2, 6, 5 ]
+ *     5        [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
  * 
  * Part 2: Test cases
  * Having good test cases is very important when writing code. Good test cases not only test the “happy path” of your
@@ -16,8 +16,21 @@
  * 
  * Answer these questions in your homework submission:
  * 1. Why is test case #1 important?
+ *    Test case one, tests whether the sorting method correctly handles an empty input array. In a recursive MergeSort
+ *    implementation, a base case is crucial. When the input array is an empty array, the same empty array is expected
+ *    as the result, and asserts equality. 
  * 2. What’s the key difference between test cases #2 and #3? Why is this important when testing MergeSort?
+ *    Test case two, tests whether the sorting method preserves an already sorted array. Test case three is similar,
+ *    but with a larger sorted array. It arranges a sorted array with five elements, expects the same sorted array as
+ *    the result, and asserts equality. It is essential to verify this scenario because it validates the stability of
+ *    the sorting algorithm. A stable sort algorithm preserves the relative order of equal elements. If the algorithm
+ *    accidentally swaps equal elements, it would violate stability. If it fails to maintain order, it could lead to
+ *    incorrect results in real-world scenarios.
  * 3. Test case #4 is some digits of π. What else is important about test case #4?
+ *    Tests whether the sorting method correctly sorts an unsorted array. It arranges an unsorted array, expects the
+ *    sorted array as the result, and asserts equality. The presence of duplicate elements, MergeSort must handle
+ *    duplicates correctly and maintain their relative order. MergeSort is a stable sorting algorithm, which means
+ *    that equal elements retain their original order after sorting.
  */
 namespace MergeSortTest;
 
