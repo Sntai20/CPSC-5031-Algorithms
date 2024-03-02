@@ -1,54 +1,70 @@
 namespace HeapSort;
 
+/// <summary>
+/// A Heap Sort implementation.
+/// </summary>
 public class HeapSort
 {
-    public static int GetMaxValue(int capacity, int[] weights, int[] dollarValues)
+    /// <summary>
+    /// Sort an array in ascending order.
+    /// </summary>
+    /// <param name="array">The array which to sort.</param>
+    public static void Sort(int[] array)
     {
-        int count = 0;
-        if (weights.Length != dollarValues.Length)
+        int arrayLength = array.Length;
+
+        // Build heap (rearrange array).
+        for (int i = arrayLength / 2 - 1; i >= 0; i--)
         {
-            Console.WriteLine("Uneven number of weights and dollar values. Please enter weight and dollar for each item.");
-            return count;
-        }
-        else
-        {
-            count = weights.Length;
+            Heapify(array, arrayLength, i);
         }
 
-        // Declare a two-dimensional array of integers named knapsack, which will contain the maximum dollar value of
-        // the items stored within the knapsack maximum capacity.
-        int[,] knapsack = new int[count + 1, capacity + 1];
-
-        Console.WriteLine($"Total weight  Total value ");
-        for (int i = 0; i <= count; ++i)
+        // One by one extract an element from heap.
+        for (int i = arrayLength - 1; i > 0; i--)
         {
-            for (int w = 0; w <= capacity; ++w)
-            {
-                // If the knapsack is empty, set the first row and column of the knapsack array to zero.
-                if (i == 0 || w == 0)
-                {
-                    knapsack[i, w] = 0;
-                }
-                // Check if the weight of the current item (weights[i - 1]) is less than or equal to the current capacity (w).
-                // If yes, it means the item can be added to the knapsack.
-                else if (weights[i - 1] <= w)
-                {
-                    // Compare the value of the bag with the new item with the current value of the bag without the
-                    // item. Take the maximum of the two and stores it in knapsack[i, w].
-                    var valueOfBagWithNewItem = dollarValues[i - 1] + knapsack[i - 1, w - weights[i - 1]];
-                    var valueOfBag = knapsack[i - 1, w];
-                    knapsack[i, w] = Math.Max(valueOfBagWithNewItem, valueOfBag);
-                    Console.WriteLine($"{w}             {knapsack[i, w]}");
-                }
-                // Do not add the item to the knapsack, if the weight of the current item is greater than the current capacity.
-                else
-                {
-                    // Copy the value from the previous row (knapsack[i - 1, w]) and stores it in knapsack[i, w].
-                    knapsack[i, w] = knapsack[i - 1, w];
-                }
-            }
+            // Move current root to end.
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+
+            // Call max heapify on the reduced heap.
+            Heapify(array, i, 0);
+        }
+    }
+
+    /// <summary>
+    /// To heapify a subtree rooted with node i which is an index in array[].
+    /// </summary>
+    /// <param name="array">The array which to sort.</param>
+    /// <param name="arrayLength">The size of the heap.</param>
+    /// <param name="i">The node root node.</param>
+    public static void Heapify(int[] array, int arrayLength, int i)
+    {
+        int largest = i; // Initialize largest as root
+        int left = 2 * i + 1; // left = 2*i + 1
+        int right = 2 * i + 2; // right = 2*i + 2
+
+        // If left child is larger than root.
+        if (left < arrayLength && array[left] > array[largest])
+        {
+            largest = left;
         }
 
-        return knapsack[count, capacity];
+        // If right child is larger than largest so far.
+        if (right < arrayLength && array[right] > array[largest])
+        {
+            largest = right;
+        }
+
+        // If largest is not root.
+        if (largest != i)
+        {
+            int swap = array[i];
+            array[i] = array[largest];
+            array[largest] = swap;
+
+            // Recursively heapify the affected sub-tree.
+            Heapify(array, arrayLength, largest);
+        }
     }
 }
