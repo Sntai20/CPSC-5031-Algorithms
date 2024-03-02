@@ -28,10 +28,30 @@ public class FileProcessor
                 Console.WriteLine("End of file");
                 return fileProcessedCount;
             }
+
+            int elapsedTime = ParseElapsedTime(item.ElapsedTime[0]);
+
+            if (elapsedTime >= 2)
+            {
+                // Resend the file.
+            }
             fileProcessedCount++;
         }
 
         return fileProcessedCount;
+    }
+
+    private static int ParseElapsedTime(string elapsedTimeString)
+    {
+        if (int.TryParse(elapsedTimeString, out int elapsedTime))
+        {
+            Console.WriteLine(elapsedTime);
+        }
+        else
+        {
+            Console.WriteLine($"Int32.TryParse could not parse '{elapsedTimeString}' to an int.");
+        }
+        return elapsedTime;
     }
 
     public static string GetSHA256HashFromFile(string fileName)
