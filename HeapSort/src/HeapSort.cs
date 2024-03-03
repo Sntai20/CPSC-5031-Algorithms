@@ -6,30 +6,31 @@ namespace HeapSort;
 public class HeapSort
 {
     /// <summary>
-    /// Sort an array in ascending order.
+    /// Sorts the input integer array in ascending order using the heap sort algorithm.
     /// </summary>
     /// <param name="array">The array which to sort.</param>
-    public static void Sort(int[] array)
+    /// <returns>The sorted array.</returns>
+    public static int[] Sort(int[] array)
     {
         int arrayLength = array.Length;
 
-        // Build heap (rearrange array).
+        // Build the initial max heap.
         for (int i = arrayLength / 2 - 1; i >= 0; i--)
         {
             Heapify(array, arrayLength, i);
         }
 
-        // One by one extract an element from heap.
+        // Extract elements from the heap one by one.
         for (int i = arrayLength - 1; i > 0; i--)
         {
-            // Move current root to end.
-            int temp = array[0];
-            array[0] = array[i];
-            array[i] = temp;
+            // Swap the root (max element) with the last element.
+            Swap(array, 0, i);
 
-            // Call max heapify on the reduced heap.
+            // Re-heapify the remaining elements.
             Heapify(array, i, 0);
         }
+
+        return array;
     }
 
     /// <summary>
@@ -37,14 +38,15 @@ public class HeapSort
     /// </summary>
     /// <param name="array">The array which to sort.</param>
     /// <param name="arrayLength">The size of the heap.</param>
-    /// <param name="i">The node root node.</param>
+    /// <param name="i">The root node.</param>
     public static void Heapify(int[] array, int arrayLength, int i)
     {
-        int largest = i; // Initialize largest as root
-        int left = 2 * i + 1; // left = 2*i + 1
-        int right = 2 * i + 2; // right = 2*i + 2
+        // Initialize largest as root.
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-        // If left child is larger than root.
+        // Find the largest among root, left child, and right child.
         if (left < arrayLength && array[left] > array[largest])
         {
             largest = left;
@@ -56,15 +58,22 @@ public class HeapSort
             largest = right;
         }
 
-        // If largest is not root.
+        // If largest is not root, swap and re-heapify.
         if (largest != i)
         {
-            int swap = array[i];
-            array[i] = array[largest];
-            array[largest] = swap;
-
-            // Recursively heapify the affected sub-tree.
+            Swap(array, i, largest);
             Heapify(array, arrayLength, largest);
         }
+    }
+
+    /// <summary>
+    /// Swaps the elements at positions i and j in the given array.
+    /// </summary>
+    /// <param name="array">The input array.</param>
+    /// <param name="i">The index of the first element to swap.</param>
+    /// <param name="j">The index of the second element to swap.</param>
+    public static void Swap(int[] array, int i, int j)
+    {
+        (array[j], array[i]) = (array[i], array[j]);
     }
 }
