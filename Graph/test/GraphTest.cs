@@ -28,6 +28,68 @@ using Graph;
 public class GraphTest
 {
     [Fact]
+    public void AddAdjacency_ShouldAddEdgeBetweenVertices()
+    {
+        // Arrange
+        Graph<string> graph = new();
+
+        // Act
+        graph.AddAdjacency("A", "B");
+        graph.AddAdjacency("B", "C");
+
+        // Assert
+        Assert.Contains("B", graph.GetAdjacencies()["A"]);
+        Assert.Contains("A", graph.GetAdjacencies()["B"]);
+        Assert.Contains("C", graph.GetAdjacencies()["B"]);
+        Assert.Contains("B", graph.GetAdjacencies()["C"]);
+    }
+
+    [Fact]
+    public void AddAdjacency_ShouldHandleExistingVertices()
+    {
+        // Arrange
+        Graph<int> graph = new();
+
+        // Act
+        graph.AddAdjacency(1, 2);
+        graph.AddAdjacency(2, 3);
+        graph.AddAdjacency(1, 3);
+
+        // Assert
+        Assert.Contains(2, graph.GetAdjacencies()[1]);
+        Assert.Contains(1, graph.GetAdjacencies()[2]);
+        Assert.Contains(3, graph.GetAdjacencies()[2]);
+        Assert.Contains(2, graph.GetAdjacencies()[3]);
+    }
+
+    [Fact]
+    public void DepthFirstSearch_ShouldVisitAllConnectedVertices()
+    {
+        // Arrange
+        Graph<int> graph = new();
+        graph.AddAdjacency(1, 2);
+        graph.AddAdjacency(1, 3);
+        graph.AddAdjacency(2, 4);
+        graph.AddAdjacency(3, 5);
+
+        Dictionary<int, bool> visited = new();
+        foreach (var vertex in graph.GetAdjacencies().Keys)
+        {
+            visited[vertex] = false;
+        }
+
+        // Act
+        var result = CaptureConsoleOutput(() =>
+        {
+            graph.DepthFirstSearch(1, visited);
+        });
+
+        // Assert
+        string expectedOutput = "1 2 4 3 5";
+        Assert.Equal(expectedOutput, result.Trim());
+    }
+
+    [Fact]
     public void DepthFirstSearch_ShouldProduceCorrectOutput()
     {
         // Arrange
@@ -45,10 +107,11 @@ public class GraphTest
             Console.Write("DFS: ");
             graph.DepthFirstSearch("A");
         });
+        var actual = result.Trim();
 
         // Assert
-        string expectedOutput = "DFS: A B D E C F";
-        Assert.Equal(expectedOutput, result.Trim());
+        string expected = "DFS: A B D E C F";
+        Assert.Equal(expected, actual);
     }
 
     [Fact]
@@ -69,10 +132,53 @@ public class GraphTest
             Console.Write("BFS: ");
             graph.BreadthFirstSearch("A");
         });
+        var actual = result.Trim();
 
         // Assert
-        string expectedOutput = "BFS: A B C D E F";
+        string expected = "BFS: A B C D E F";
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void BreadthFirstSearch_ShouldVisitAllConnectedVertices()
+    {
+        // Arrange
+        Graph<int> graph = new();
+        graph.AddAdjacency(1, 2);
+        graph.AddAdjacency(1, 3);
+        graph.AddAdjacency(2, 4);
+        graph.AddAdjacency(3, 5);
+
+        // Act
+        var result = CaptureConsoleOutput(() =>
+        {
+            graph.BreadthFirstSearch(1);
+        });
+
+        // Assert
+        string expectedOutput = "1 2 3 4 5";
         Assert.Equal(expectedOutput, result.Trim());
+    }
+
+    [Fact]
+    public void GetAdjacencies_ShouldReturnCorrectAdjacencyList()
+    {
+        // Arrange
+        Graph<string> graph = new();
+        graph.AddAdjacency("A", "B");
+        graph.AddAdjacency("A", "C");
+        graph.AddAdjacency("B", "D");
+
+        // Act
+        var adjacencies = graph.GetAdjacencies();
+
+        // Assert
+        Assert.True(adjacencies.ContainsKey("A"));
+        Assert.Contains("B", adjacencies["A"]);
+        Assert.Contains("C", adjacencies["A"]);
+        Assert.True(adjacencies.ContainsKey("B"));
+        Assert.Contains("A", adjacencies["B"]);
+        Assert.Contains("D", adjacencies["B"]);
     }
 
     // Helper method to capture console output.
