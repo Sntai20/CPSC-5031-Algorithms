@@ -23,6 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Graphs.csproj" />
+    <ProjectReference Include="..\src\Graph.csproj" />
   </ItemGroup>
 </Project>
