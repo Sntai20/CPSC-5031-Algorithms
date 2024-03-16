@@ -7,6 +7,7 @@ namespace Graph;
 public class Graph<T>
 {
     private Dictionary<T, List<T>> adjacencyList;
+    private Dictionary<T, int> inDegree;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Graph{T}"/> class.
@@ -14,6 +15,7 @@ public class Graph<T>
     public Graph()
     {
         adjacencyList = new Dictionary<T, List<T>>();
+        inDegree = new Dictionary<T, int>();
     }
 
     /// <summary>
@@ -35,7 +37,6 @@ public class Graph<T>
         }
 
         adjacencyList[vertexAdjacentFrom].Add(vertexAdjacentTo);
-        adjacencyList[vertexAdjacentTo].Add(vertexAdjacentFrom); // For an undirected graph
     }
 
     /// <summary>
@@ -109,5 +110,57 @@ public class Graph<T>
     public Dictionary<T, List<T>> GetAdjacencies()
     {
         return adjacencyList;
+    }
+
+    /// <summary>
+    /// Performs a topological sort on the graph using Kahn's algorithm.
+    /// </summary>
+    /// <returns>A list of vertices in topological order.</returns>
+    public List<T> TopologicalSort()
+    {
+        // Initialize in-degree for each vertex.
+        //Dictionary<T, int> inDegree = new Dictionary<T, int>();
+        foreach (var vertex in adjacencyList.Keys)
+        {
+            inDegree[vertex] = 0;
+        }
+
+        // Calculate in-degree for each vertex.
+        foreach (var vertex in adjacencyList.Keys)
+        {
+            foreach (var adjacentVertex in adjacencyList[vertex])
+            {
+                inDegree[adjacentVertex]++;
+            }
+        }
+
+        // Initialize queue with vertices having in-degree 0.
+        Queue<T> queue = new Queue<T>();
+        foreach (var vertex in inDegree.Keys)
+        {
+            if (inDegree[vertex] == 0)
+            {
+                queue.Enqueue(vertex);
+            }
+        }
+
+        // Perform topological sort.
+        List<T> sortedOrder = new List<T>();
+        while (queue.Count > 0)
+        {
+            T current = queue.Dequeue();
+            sortedOrder.Add(current);
+
+            foreach (var adjacentVertex in adjacencyList[current])
+            {
+                inDegree[adjacentVertex]--;
+                if (inDegree[adjacentVertex] == 0)
+                {
+                    queue.Enqueue(adjacentVertex);
+                }
+            }
+        }
+
+        return sortedOrder;
     }
 }
