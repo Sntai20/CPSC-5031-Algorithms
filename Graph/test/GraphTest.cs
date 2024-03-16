@@ -28,65 +28,6 @@ using Graph;
 public class GraphTest
 {
     [Fact]
-    public void AddAdjacency_ShouldAddEdgeBetweenVertices()
-    {
-        // Arrange
-        Graph<string> graph = new();
-
-        // Act
-        graph.AddAdjacency("A", "B");
-        graph.AddAdjacency("B", "C");
-
-        // Assert
-        Assert.Contains("B", graph.GetAdjacencies()["A"]);
-        Assert.Contains("C", graph.GetAdjacencies()["B"]);
-    }
-
-    [Fact(Skip = "Handle existing vertices disabled for update address.")]
-    public void AddAdjacency_ShouldHandleExistingVertices()
-    {
-        // Arrange
-        Graph<int> graph = new();
-
-        // Act
-        graph.AddAdjacency(1, 2);
-        graph.AddAdjacency(2, 3);
-        graph.AddAdjacency(1, 3);
-
-        // Assert
-        Assert.Contains(1, graph.GetAdjacencies()[2]);
-        Assert.Contains(3, graph.GetAdjacencies()[2]);
-        //Assert.Contains(3, graph.GetAdjacencies()[1]);
-    }
-
-    [Fact]
-    public void DepthFirstSearch_ShouldVisitAllConnectedVertices()
-    {
-        // Arrange
-        Graph<int> graph = new();
-        graph.AddAdjacency(1, 2);
-        graph.AddAdjacency(1, 3);
-        graph.AddAdjacency(2, 4);
-        graph.AddAdjacency(3, 5);
-
-        Dictionary<int, bool> visited = new();
-        foreach (var vertex in graph.GetAdjacencies().Keys)
-        {
-            visited[vertex] = false;
-        }
-
-        // Act
-        var result = CaptureConsoleOutput(() =>
-        {
-            graph.DepthFirstSearch(1, visited);
-        });
-
-        // Assert
-        string expectedOutput = "1 2 4 3 5";
-        Assert.Equal(expectedOutput, result.Trim());
-    }
-
-    [Fact]
     public void DepthFirstSearch_ShouldProduceCorrectOutput()
     {
         // Arrange
@@ -145,6 +86,75 @@ public class GraphTest
     }
 
     [Fact]
+    public void TopologicalSort_ShouldReturnCorrectOutput()
+    {
+        // Arrange
+        Graph<string> graph = new();
+        graph.AddAdjacency("Underwear", "Pants");
+        graph.AddAdjacency("Pants", "Belt");
+        graph.AddAdjacency("Underwear", "Shoes");
+        graph.AddAdjacency("Pants", "Shoes");
+        graph.AddAdjacency("Shirt", "Belt");
+        graph.AddAdjacency("Shirt", "Tie");
+        graph.AddAdjacency("Tie", "Jacket");
+        graph.AddAdjacency("Socks", "Shoes");
+        graph.AddAdjacency("Watch", string.Empty);
+
+        // Act
+        var result = CaptureConsoleOutput(() =>
+        {
+            List<string> sortedOrder = graph.TopologicalSort();
+            Console.Write(string.Join(" ", sortedOrder));
+        });
+
+        // Assert
+        string expectedOutput = "Underwear Shirt Socks Watch Pants Tie  Belt Shoes Jacket";
+        Assert.Equal(expectedOutput, result.Trim());
+    }
+
+    [Fact]
+    public void AddAdjacency_ShouldAddEdgeBetweenVertices()
+    {
+        // Arrange
+        Graph<string> graph = new();
+
+        // Act
+        graph.AddAdjacency("A", "B");
+        graph.AddAdjacency("B", "C");
+
+        // Assert
+        Assert.Contains("B", graph.GetAdjacencies()["A"]);
+        Assert.Contains("C", graph.GetAdjacencies()["B"]);
+    }
+
+    [Fact]
+    public void DepthFirstSearch_ShouldVisitAllConnectedVertices()
+    {
+        // Arrange
+        Graph<int> graph = new();
+        graph.AddAdjacency(1, 2);
+        graph.AddAdjacency(1, 3);
+        graph.AddAdjacency(2, 4);
+        graph.AddAdjacency(3, 5);
+
+        Dictionary<int, bool> visited = new();
+        foreach (var vertex in graph.GetAdjacencies().Keys)
+        {
+            visited[vertex] = false;
+        }
+
+        // Act
+        var result = CaptureConsoleOutput(() =>
+        {
+            graph.DepthFirstSearch(1, visited);
+        });
+
+        // Assert
+        string expectedOutput = "1 2 4 3 5";
+        Assert.Equal(expectedOutput, result.Trim());
+    }
+
+    [Fact]
     public void BreadthFirstSearch_ShouldVisitAllConnectedVertices()
     {
         // Arrange
@@ -199,32 +209,6 @@ public class GraphTest
 
         // Assert
         Assert.Empty(sortedOrder); // No valid topological order due to the cycle
-    }
-
-    [Fact(Skip = "Topological sort disabled for update address.")]
-    public void TopologicalSort_ShouldReturnCorrectOutput()
-    {
-        // Arrange
-        Graph<string> graph = new();
-        graph.AddAdjacency("Underwear", "Pants");
-        graph.AddAdjacency("Pants", "Belt");
-        graph.AddAdjacency("Underwear", "Shoes");
-        graph.AddAdjacency("Pants", "Shoes");
-        graph.AddAdjacency("Socks", "Shoes");
-        graph.AddAdjacency("Shirt", "Tie");
-        graph.AddAdjacency("Shirt", "Tie");
-        graph.AddAdjacency("Tie", "Jacket");
-
-        // Act
-        List<string> sortedOrder;
-        var result = CaptureConsoleOutput(() =>
-        {
-            sortedOrder = graph.TopologicalSort();
-        });
-
-        // Assert
-        string expectedOutput = "Underwear Pants Socks Shirt Tie Jacket";
-        Assert.Equal(expectedOutput, result.Trim());
     }
 
     // Helper method to capture console output.
